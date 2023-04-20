@@ -171,14 +171,28 @@ while run:
     #         # print("Please enter a valid age (numbers only).")
 
     if submit_button.isClicked():
-            if input_box_age.text.isdigit():
-                output_text.text = f"Hello {input_box_first_name.text} {input_box_last_name.text}! You are {input_box_age.text} years old."
-            # if not input_box_first_name.text.isalpha() or not input_box_last_name.text.isalpha():
+            if input_box_first_name.text != '' and input_box_last_name.text != '' and input_box_age.text != '':
+                if input_box_age.text.isdigit():
+                    output_text.textcolor = black
+                    output_text.text = f"Hello {input_box_first_name.text} {input_box_last_name.text}! You are {input_box_age.text} years old."
+                # if not input_box_first_name.text.isalpha() or not input_box_last_name.text.isalpha():
+                #     output_text.textcolor = red
+                #     output_text.text = "Please enter a valid name in the Firstname or Lastname box (alphabet only)"
+                if not input_box_age.text.isdigit():
+                    output_text.textcolor = red
+                    output_text.text = "Please enter a valid age in the Age box (numbers only)."
+            # elif input_box_first_name.text == '' and input_box_last_name.text != '' and input_box_age.text != '':
             #     output_text.textcolor = red
-            #     output_text.text = "Please enter a valid name in the Firstname or Lastname box (alphabet only)"
-            if not input_box_age.text.isdigit():
+            #     output_text.text = "Please text in First name box"
+            # elif input_box_first_name.text != '' and input_box_last_name.text == '' and input_box_age.text != '':
+            #     output_text.textcolor = red
+            #     output_text.text = "Please text in Last name box"
+            # elif input_box_first_name.text != '' and input_box_last_name.text != '' and input_box_age.text == '':
+            #     output_text.textcolor = red
+            #     output_text.text = "Please text in Age box"
+            else:
                 output_text.textcolor = red
-                output_text.text = "Please enter a valid age in the Age box (numbers only)."
+                output_text.text = "Please text in every box"
     
     for event in pg.event.get():
         
