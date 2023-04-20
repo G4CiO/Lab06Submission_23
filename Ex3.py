@@ -117,14 +117,6 @@ input_box_last_name = InputBox(100, 200, 140, 32)
 input_box_age = InputBox(100, 280, 140, 32)
 input_boxes = [input_box_first_name,input_box_last_name, input_box_age ] # เก็บ InputBox ไว้ใน list เพื่อที่จะสามารถนำไปเรียกใช้ได้ง่าย
 
-
-# font = pg.font.Font('freesansbold.ttf', 32) # font and fontsize
-# font_ans = pg.font.Font('freesansbold.ttf', 22)
-# text_first_name = font.render('First name', True, black, white) # (text,is smooth?,letter color,background color)
-# text_last_name = font.render('Last name', True, black, white)
-# text_age = font.render('Age', True, black, white)
-# text_submit = font.render('Submit',True,black,green)
-
 text_head_line = Textbox(330,40,"Personal form",40)
 
 text_first_name = Textbox(100,90,"Firstname",32)
@@ -140,10 +132,6 @@ run = True
 while run:
     screen.fill(white)
     submit_button.draw(screen)
-    # screen.blit(text_first_name,(100,50))
-    # screen.blit(text_last_name,(100,150))
-    # screen.blit(text_age,(100,250))
-    # screen.blit(text_submit,(100,350))
     
     text_head_line.show_text(screen)
 
@@ -156,40 +144,14 @@ while run:
     
     output_text.show_text(screen)
 
-    # ans = f"Hello {input_box_first_name.text} {input_box_last_name.text}! You are {input_box_age.text} years old."
-    # if submit_button.isClicked():
-    #     if input_box_first_name.text == '' and input_box_last_name.text == '' and input_box_age.text == '':
-    #         ans_submit = font_ans.render("Please text in box.",True,black,white)
-    #         screen.blit(ans_submit, (100,400))
-    #     elif input_box_age.text.isdigit():
-    #         ans_submit = font_ans.render(ans,True,black,white)
-    #         screen.blit(ans_submit, (100,400))
-    #         # print(f"Hello {input_box_first_name.text} {input_box_last_name.text}! You are {input_box_age.text} years old.")
-    #     else:
-    #         ans_submit = font_ans.render("Please text in Age box.",True,red,white)
-    #         screen.blit(ans_submit, (100,400))
-    #         # print("Please enter a valid age (numbers only).")
-
     if submit_button.isClicked():
             if input_box_first_name.text != '' and input_box_last_name.text != '' and input_box_age.text != '':
                 if input_box_age.text.isdigit():
                     output_text.textcolor = black
                     output_text.text = f"Hello {input_box_first_name.text} {input_box_last_name.text}! You are {input_box_age.text} years old."
-                # if not input_box_first_name.text.isalpha() or not input_box_last_name.text.isalpha():
-                #     output_text.textcolor = red
-                #     output_text.text = "Please enter a valid name in the Firstname or Lastname box (alphabet only)"
-                if not input_box_age.text.isdigit():
+                elif not input_box_age.text.isdigit():
                     output_text.textcolor = red
                     output_text.text = "Please enter a valid age in the Age box (numbers only)."
-            # elif input_box_first_name.text == '' and input_box_last_name.text != '' and input_box_age.text != '':
-            #     output_text.textcolor = red
-            #     output_text.text = "Please text in First name box"
-            # elif input_box_first_name.text != '' and input_box_last_name.text == '' and input_box_age.text != '':
-            #     output_text.textcolor = red
-            #     output_text.text = "Please text in Last name box"
-            # elif input_box_first_name.text != '' and input_box_last_name.text != '' and input_box_age.text == '':
-            #     output_text.textcolor = red
-            #     output_text.text = "Please text in Age box"
             else:
                 output_text.textcolor = red
                 output_text.text = "Please text in every box"
