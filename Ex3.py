@@ -77,7 +77,7 @@ class Button(Rectangle):
         else:
             return False
 
-class Textbox(InputBox):
+class Textbox:
     def __init__(self,x=0,y=0,text = "",textsize = 22,textcolor = (0,0,0),font = None):
         self.x = x
         self.y = y
